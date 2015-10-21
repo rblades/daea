@@ -8,14 +8,14 @@
 
     <title>St. John's, Newfoundland</title>
 
-    
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/leaflet.css" />
-    
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -23,7 +23,7 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--<script src="js/ie10-viewport-bug-workaround.js"></script>-->
-    
+
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,20 +34,19 @@
   </head>
 
   <body>
-      
+
       <!-- MODAL -->
-      
+
       <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-dialog modal-vertical-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Welcome to the St. John's Micro-History Mapping Project</h4>
+                        <h4 class="modal-title" id="myModalLabel">Welcome to a Sonification of Pembroke's Industrial Past</h4>
                     </div>
                     <div class="modal-body">
-                        This code all comes from The The Digital Atlas of Ancient Egypt, a digital cultural map of archaeological sites in Egypt (ranging from the Predynastic to the Roman period).  Collaboratively produced at Michigan State University during the Fall 2014 semester by the students registered in the Archaeology of Ancient Egypt class (ANP 455), the Digital Atlas of Ancient Egypt represents an experiment in applied digital archaeology undergraduate learning. This version was created by Christina Ross.  
-
+                        This code all comes from The The Digital Atlas of Ancient Egypt, a digital cultural map of archaeological sites in Egypt (ranging from the Predynastic to the Roman period).  Collaboratively produced at Michigan State University during the Fall 2014 semester by the students registered in the Archaeology of Ancient Egypt class (ANP 455), the Digital Atlas of Ancient Egypt represents an experiment in applied digital archaeology undergraduate learning. This version was created by Rob Blades.
                     </div>
                     <div class="modal-footer">
                         <label ><input class="dont" type="checkbox" name="dismiss"> Don't show again</label><br />
@@ -57,7 +56,7 @@
             </div>
         </div>
       </div>
-    
+
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -83,11 +82,11 @@
 
     <!-- MAP -->
      <div id="map"></div>
-     
-    <!-- FOOTER -->  
+
+    <!-- FOOTER -->
     <div class="footer">
       <div class="container">
-       <p class="text-muted"><img src="http://newsroom.carleton.ca/logos/CarletonWide_K_186.gif" alt="Carleton University Department of History"></p> 
+       <p class="text-muted"><img src="http://newsroom.carleton.ca/logos/CarletonWide_K_186.gif" alt="Carleton University Department of History"></p>
        </div>
     </div>
 
@@ -98,7 +97,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="leaflet-omnivore-master/leaflet-omnivore.js"></script>
-    <script src="js/leaflet.js"></script> 
+    <script src="js/leaflet.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("a[rel=citation]").popover({
@@ -112,13 +111,13 @@
 			});
 		});
 	</script>
-      
-      
- <!-- Initiates Modal and Uses cookies for Dont Show Again Checkbox -->     
+
+
+ <!-- Initiates Modal and Uses cookies for Dont Show Again Checkbox -->
 <script type="text/javascript">
  $(document).ready(function () {
     $('#myModal').modal();
-  
+
    //check cookies
     function setCookie(){
         var dis = document.cookie;
@@ -128,23 +127,23 @@
         }
         console.log(dis.substring(8,13));
     }
-    setCookie();    
-     
-     
+    setCookie();
+
+
       var $check = $("input.dont").click(function(){
         if($("input.dont").is(":checked")){
-        document.cookie = "display=false";        
+        document.cookie = "display=false";
         }else{
-        document.cookie = "display=true";        
+        document.cookie = "display=true";
         }
-          
+
       });
  });
 </script>
- 
-      
-      
-<!-- Centers Modal Vertically -->      
+
+
+
+<!-- Centers Modal Vertically -->
 <script type="text/javascript">
       function centerModal() {
     $(this).css('display', 'block');
@@ -159,10 +158,10 @@ $(window).on("resize", function () {
     $('.modal:visible').each(centerModal);
 });
 </script>
-      
-      
-     
-<!-- Initiates Map and pulls data from .CSV --> 
+
+
+
+<!-- Initiates Map and pulls data from .CSV -->
 <script>
 
 var map = L.map('map', {
@@ -177,9 +176,9 @@ var map = L.map('map', {
             //enter path for .csv here
             omnivore.csv('sites/aa-sites-popup.csv')
              .on('ready', function(layer) {
-       
+
         this.eachLayer(function(marker) {
-          
+
             // Bind a popup to each icon based on the same properties
             // Adds coloumns of extra info to marker popup
             marker.bindPopup(marker.toGeoJSON().properties.timePeriod +
@@ -189,9 +188,9 @@ var map = L.map('map', {
         });
     })
             .addTo(map);
-            
+
 </script>
-      
+
 
 
 
